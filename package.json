@@ -1,5 +1,5 @@
 {
-  "name": "pwa-starter-kit",
+  "name": "TMO",
   "version": "0.8.0",
   "contributors": [
     "The Polymer Authors"
@@ -20,6 +20,7 @@
     "test:regenerate_screenshots": "mocha test/integration/screenshots-baseline/regenerate.js --timeout=15000"
   },
   "dependencies": {
+    "@fabricelements/skeleton-carousel": "^3.0.2",
     "@polymer/app-layout": "^3.0.0-pre.21",
     "@polymer/lit-element": "^0.5.2",
     "@webcomponents/webcomponentsjs": "^2.0.0",
@@ -37,10 +38,11 @@
     "gulp-replace": "^1.0.0",
     "mocha": "^5.2.0",
     "pixelmatch": "^4.0.2",
-    "polymer-cli": "^1.7.6",
+    "polymer-cli": "^1.8.0",
     "polyserve": "^0.27.0",
     "prpl-server": "^1.2.0",
     "puppeteer": "^1.5.0",
+    "react-swipe-navigation": "^1.1.5",
     "wct-browser-legacy": "^1.0.1"
   }
 }

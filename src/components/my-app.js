@@ -68,7 +68,6 @@ class MyApp extends connect(store)(LitElement) {
         text-align: center;
         background-color: var(--app-header-background-color);
         color: var(--app-header-text-color);
-        border-bottom: 1px solid #eee;
       }
 
       .toolbar-top {
@@ -76,17 +75,13 @@ class MyApp extends connect(store)(LitElement) {
       }
 
       [main-title] {
-        font-family: 'Pacifico';
+        font-family: 'Helvetica Neue';
         text-transform: lowercase;
         font-size: 30px;
         /* In the narrow layout, the toolbar is offset by the width of the
         drawer button, and the text looks not centered. Add a padding to
         match that button */
         padding-right: 44px;
-      }
-
-      .toolbar-list {
-        display: none;
       }
 
       .toolbar-list > a {
@@ -96,7 +91,6 @@ class MyApp extends connect(store)(LitElement) {
         line-height: 30px;
         padding: 4px 24px;
       }
-
       .toolbar-list > a[selected] {
         color: var(--app-header-selected-color);
         border-bottom: 4px solid var(--app-header-selected-color);
@@ -163,20 +157,15 @@ class MyApp extends connect(store)(LitElement) {
         .toolbar-list {
           display: block;
         }
-
         .menu-btn {
-          display: none;
+          
         }
-
         .main-content {
           padding-top: 107px;
         }
-
         /* The drawer button isn't shown in the wide layout, so we don't
         need to offset the title */
-        [main-title] {
-          padding-right: 0px;
-        }
+
       }
     </style>
 
@@ -184,14 +173,14 @@ class MyApp extends connect(store)(LitElement) {
     <app-header condenses reveals effects="waterfall">
       <app-toolbar class="toolbar-top">
         <button class="menu-btn" title="Menu" on-click="${_ => store.dispatch(updateDrawerState(true))}">${menuIcon}</button>
-        <div main-title>${appTitle}</div>
+        <div main-title>${_page === 'home' ? 'bogo' : _page}</div>
       </app-toolbar>
 
       <!-- This gets hidden on a small screen-->
       <nav class="toolbar-list">
-        <a selected?="${_page === 'view1'}" href="/view1">View One</a>
-        <a selected?="${_page === 'view2'}" href="/view2">View Two</a>
-        <a selected?="${_page === 'view3'}" href="/view3">View Three</a>
+        <a selected?="${_page === 'home'}" href="/${_page}/view1">Drinks</a>
+        <a selected?="${_page === 'rez'}" href="/${_page}/view2">Muffins</a>
+        <a selected?="${_page === 'kindlevan'}" href="/${_page}/view3">Bagels</a>
       </nav>
     </app-header>
 
@@ -199,22 +188,24 @@ class MyApp extends connect(store)(LitElement) {
     <app-drawer opened="${_drawerOpened}"
         on-opened-changed="${e => store.dispatch(updateDrawerState(e.target.opened))}">
       <nav class="drawer-list">
-        <a selected?="${_page === 'view1'}" href="/view1">View One</a>
-        <a selected?="${_page === 'view2'}" href="/view2">View Two</a>
-        <a selected?="${_page === 'view3'}" href="/view3">View Three</a>
+        <a selected?="${_page === 'home'}" href="/home">Home</a>
+       
+        <a selected?="${_page === 'rez'}" href="/rez">The Rez</a>
+        <a selected?="${_page === 'kindlevan'}" href="/kindlevan">Kindlevan</a>
       </nav>
     </app-drawer>
 
     <!-- Main content -->
     <main role="main" class="main-content">
-      <my-view1 class="page" active?="${_page === 'view1'}"></my-view1>
-      <my-view2 class="page" active?="${_page === 'view2'}"></my-view2>
-      <my-view3 class="page" active?="${_page === 'view3'}"></my-view3>
+      <my-home class="page" active?="${_page === 'home'}"></my-home>
+      
+      <my-rez class="page" active?="${_page === 'rez'}"></my-rez>
+      <my-kindlevan class="page" active?="${_page === 'kindlevan'}"></my-kindlevan>
       <my-view404 class="page" active?="${_page === 'view404'}"></my-view404>
     </main>
 
     <footer>
-      <p>Made with &hearts; by the Polymer team.</p>
+      <p>Made with &hearts; by Ryan Sheehan.</p>
     </footer>
 
     <snack-bar active?="${_snackbarOpened}">

@@ -14,12 +14,20 @@ export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 export const CHECKOUT_SUCCESS = 'CHECKOUT_SUCCESS';
 export const CHECKOUT_FAILURE = 'CHECKOUT_FAILURE';
 
-const PRODUCT_LIST = [
-  {"id": 1, "title": "Cabot Creamery Extra Sharp Cheddar Cheese", "price": 10.99, "inventory": 2},
-  {"id": 2, "title": "Cowgirl Creamery Mt. Tam Cheese", "price": 29.99, "inventory": 10},
-  {"id": 3, "title": "Tillamook Medium Cheddar Cheese", "price": 8.99, "inventory": 5},
-  {"id": 4, "title": "Point Reyes Bay Blue Cheese", "price": 24.99, "inventory": 7},
-  {"id": 5, "title": "Shepherd's Halloumi Cheese", "price": 11.99, "inventory": 3}
+const REZ_PRODUCT_LIST = [
+  {"id": 1, "title": "Pistachio", "price": 1.75, "inventory": 2},
+  {"id": 2, "title": "Chocolate Chip", "price": 1.75, "inventory": 10},
+  {"id": 3, "title": "Double Chocolate Chip", "price": 1.75, "inventory": 5},
+  {"id": 4, "title": "Coffee Cake", "price": 1.75, "inventory": 7},
+  {"id": 5, "title": "Cranberry Orange", "price": 1.75, "inventory": 3},
+  {"id": 6, "title": "Blueberry", "price": 1.75, "inventory": 3},
+  {"id": 7, "title": "Pumpkin", "price": 1.75, "inventory": 3},
+  {"id": 8, "title": "Corn", "price": 1.75, "inventory": 3},
+  {"id": 9, "title": "Lemon Poppy Seed", "price": 1.75, "inventory": 3},
+  {"id": 10, "title": "Red Velvet", "price": 1.75, "inventory": 3},
+  {"id": 11, "title": "Bran", "price": 1.75, "inventory": 3},
+  {"id": 12, "title": "Apple Cinnamon", "price": 1.75, "inventory": 3},
+  {"id": 13, "title": "Banana Nut", "price": 1.75, "inventory": 3}
 ];
 
 export const getAllProducts = () => (dispatch, getState) => {
@@ -28,7 +36,7 @@ export const getAllProducts = () => (dispatch, getState) => {
   // succesfully got the data back)
 
   // You could reformat the data in the right format as well:
-  const products = PRODUCT_LIST.reduce((obj, product) => {
+  const products = REZ_PRODUCT_LIST.reduce((obj, product) => {
     obj[product.id] = product
     return obj
   }, {});

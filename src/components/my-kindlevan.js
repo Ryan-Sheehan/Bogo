@@ -33,7 +33,7 @@ import { SharedStyles } from './shared-styles.js';
 import { ButtonSharedStyles } from './button-shared-styles.js';
 import { addToCartIcon } from './my-icons.js';
 
-class MyView3 extends connect(store)(PageViewElement) {
+class MyKindlevan extends connect(store)(PageViewElement) {
   _render({_quantity, _error}) {
     return html`
       ${SharedStyles}
@@ -66,14 +66,8 @@ class MyView3 extends connect(store)(PageViewElement) {
       </style>
 
       <section>
-        <h2>Redux example: shopping cart</h2>
+        <h2>Drinks</h2>
         <div class="cart">${addToCartIcon}<div class="circle small">${_quantity}</div></div>
-        <p>This is a slightly more advanced Redux example, that simulates a
-          shopping cart: getting the products, adding/removing items to the
-          cart, and a checkout action, that can sometimes randomly fail (to
-          simulate where you would add failure handling). </p>
-        <p>This view, as well as its 2 child elements, <code>&lt;shop-products&gt;</code> and
-        <code>&lt;shop-cart&gt;</code> are connected to the Redux store.</p>
       </section>
       <section>
         <h3>Products</h3>
@@ -108,4 +102,4 @@ class MyView3 extends connect(store)(PageViewElement) {
   }
 }
 
-window.customElements.define('my-view3', MyView3);
+window.customElements.define('my-kindlevan', MyKindlevan);

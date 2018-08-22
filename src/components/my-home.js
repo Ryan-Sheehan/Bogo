@@ -14,10 +14,29 @@ import { PageViewElement } from './page-view-element.js';
 // These are the shared styles needed by this element.
 import { SharedStyles } from './shared-styles.js';
 
-class MyView1 extends PageViewElement {
+class MyHome extends PageViewElement {
   _render(props) {
     return html`
       ${SharedStyles}
+      <style>
+      .toolbar-list {
+        
+      }
+
+      .toolbar-list > a {
+        display: block;
+        color: var(--app-header-text-color);
+        text-decoration: none;
+        line-height: 30px;
+        padding: 4px 24px;
+      }
+
+      .toolbar-list > a[selected] {
+        color: var(--app-header-selected-color);
+        border-bottom: 4px solid var(--app-header-selected-color);
+      }
+      </style>
+      
       <section>
         <h2>Static page</h2>
         <p>This is a text-only page.</p>
@@ -32,6 +51,14 @@ class MyView1 extends PageViewElement {
       </section>
     `;
   }
+  // static get properties() {
+  //   return {
+  //     _tab: String
+  //   }
+  // }
+
+
 }
 
-window.customElements.define('my-view1', MyView1);
+
+window.customElements.define('my-home', MyHome);

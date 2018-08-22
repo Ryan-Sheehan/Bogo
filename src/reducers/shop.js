@@ -9,6 +9,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 
 import {
+  SWITCH_TAB,
   GET_PRODUCTS,
   ADD_TO_CART,
   REMOVE_FROM_CART,
@@ -16,6 +17,10 @@ import {
   CHECKOUT_FAILURE
 } from '../actions/shop.js';
 import { createSelector } from 'reselect';
+
+const INITIAL_TAB = {
+  tab: 'drinks'
+}
 
 const INITIAL_CART = {
   addedIds: [],
@@ -29,6 +34,7 @@ const UPDATED_CART = {
 
 const shop = (state = {products: {}, cart: INITIAL_CART}, action) => {
   switch (action.type) {
+    case SWITCH_TAB:
     case GET_PRODUCTS:
       return {
         ...state,
